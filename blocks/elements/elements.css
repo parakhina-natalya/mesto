@@ -37,7 +37,7 @@
 
 .element__info {
   max-width: 241px;
-  padding: 23px 20px 28px 21px;
+  padding: 25px 20px 28px 21px;
   display: flex;
   justify-content: space-between;
 }
@@ -49,32 +49,27 @@
   font-size: 24px;
   line-height: 1.20;
   color: #000000;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
-.element__like {
-  border: none;
+.button__like {
   background: url(../../images/like.svg) no-repeat;
   background-size: 100%;
-  cursor: pointer;
   width: 22px;
   height: 19px;
   align-self: center;
 }
 
-.element__like:hover {
+.button__like:hover {
   opacity: 0.5;
 }
 
-.element__like:active {
+.button__like_active {
   background: url(../../images/like-active.svg) no-repeat;
   width: 22px;
   height: 19px;
   opacity: 1;
 }
 
-.element__like:disabled {
-  cursor: default;
+.button__like_active:hover {
+  opacity: 1;
 }

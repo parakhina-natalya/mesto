@@ -5,20 +5,20 @@
 .header__logo {
   width: 142px;
   height: 33px;
-  padding-bottom: 41px;
+  padding-bottom: 40px;
 }
 
 @media screen and (max-width: 918px) {
   .header__logo {
-padding-left: 19px;
+    padding-left: 19px;
   }
 }
 
 @media screen and (max-width: 450px) {
   .header__logo {
-    width: 103.74px;
-    height: 24.4px;
-    padding: 0 0 31.6px 27px;
+    width: 104px;
+    height: 24px;
+    padding: 0 0 31px 27px;
   }
 }
 
@@ -27,13 +27,12 @@ padding-left: 19px;
   height: 1px;
   border: none;
   background-color: #545454;
-  margin-bottom: 36.25px;
+  margin-bottom: 40px;
 }
 
 
 @media screen and (max-width: 450px) {
   .header__line {
-    margin-bottom: 38.25px;
+    margin-bottom: 42px;
   }
 }
-

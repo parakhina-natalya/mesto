@@ -5,31 +5,27 @@
   }
 }
 
-.footer {
-  padding-bottom: 60px;
+.text-overflow {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-@media screen and (max-width: 918px) {
-  .footer {
-    padding-bottom: 36px;
-  }
-}
 
-.footer__copyright {
+.button {
+  box-sizing: border-box;
+  background-color: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
   margin: 0;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.22;
-  color: #545454;
+  transition: opacity .3s;
+  border: none;
 }
 
-@media screen and (max-width: 918px) {
-  .footer__copyright {
-    padding-left: 19px;
-    padding-right: 19px;
-    font-size: 14px;
-    padding-right: 1.35;
-  }
-}
+
+
 
 
