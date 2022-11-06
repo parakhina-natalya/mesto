@@ -4,7 +4,7 @@
  А так же, вы легко сможете поделиться своими фотографиями с друзьями.
 
 
-[Создай свою историю!](https://parakhina-natalya.github.io/russian-travel-by-napar/)
+[Создай свою историю!](https://parakhina-natalya.github.io/mesto/)
 
 
 ***
