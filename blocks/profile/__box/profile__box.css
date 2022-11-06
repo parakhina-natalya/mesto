@@ -1,0 +1,5 @@
+.profile__box {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 8px;
+}

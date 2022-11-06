@@ -1,17 +1,3 @@
-@media screen and (max-width: 918px) {
-  .content {
-    padding-left: 19px;
-    padding-right: 19px;
-  }
-}
-
-.text-overflow {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-
 .button {
   box-sizing: border-box;
   background-color: transparent;
@@ -24,8 +10,3 @@
   transition: opacity .3s;
   border: none;
 }
-
-
-
-
-
