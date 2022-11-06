@@ -17,17 +17,19 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/avatar.jpg" alt="Жак-Ив Кусто">
+        <div class="profile__avatar">
+          <img class="profile__avatar-photo" src="./images/avatar.jpg" alt="Жак-Ив Кусто">
+        </div>
         <div class="profile__info">
           <div class="profile__box">
             <h1 class="profile__author text-overflow">Жак-Ив Кусто</h1>
-            <button class="button button__edit">
+            <button class="button button_edit" type="submit">
               <img class="button__edit-icon" src="./images/edit-icon.svg" alt="Редактировать профиль">
             </button>
           </div>
           <p class="profile__slogan text-overflow">Исследователь океана</p>
         </div>
-        <button class="button button__add">
+        <button class="button button_add" type="submit">
           <img class="button__add-icon" src="./images/add-icon.svg" alt="Добавить">
         </button>
       </section>
@@ -37,42 +39,42 @@
             <img class="card__picture" src="./images/karachaevsk.jpg" alt="древние постройки в Карачаевске">
             <div class="card__info">
               <h2 class="card__title text-overflow">Карачаевск</h2>
-              <button class="button button__like"></button>
+              <button class="button button_like" type="submit"></button>
             </div>
           </li>
           <li class="card">
             <img class="card__picture" src="./images/elbrus.jpg" alt="гора Эльбрус">
             <div class="card__info">
               <h2 class="card__title text-overflow">Гора Эльбрус</h2>
-              <button class="button button__like"></button>
+              <button class="button button_like" type="submit"></button>
             </div>
           </li>
           <li class="card">
             <img class="card__picture" src="./images/dombai.jpg" alt="Домбай">
             <div class="card__info">
               <h2 class="card__title text-overflow">Домбай</h2>
-              <button class="button button__like"></button>
+              <button class="button button_like" type="submit"></button>
             </div>
           </li>
           <li class="card">
             <img class="card__picture" src="./images/elbrus.jpg" alt="гора Эльбрус">
             <div class="card__info">
               <h2 class="card__title text-overflow">Гора Эльбрус</h2>
-              <button class="button button__like"></button>
+              <button class="button button_like" type="submit"></button>
             </div>
           </li>
           <li class="card">
             <img class="card__picture" src="./images/dombai.jpg" alt="Домбай">
             <div class="card__info">
               <h2 class="card__title text-overflow">Домбай</h2>
-              <button class="button button__like"></button>
+              <button class="button button_like" type="submit"></button>
             </div>
           </li>
           <li class="card">
             <img class="card__picture" src="./images/karachaevsk.jpg" alt="древние постройки в Карачаевске">
             <div class="card__info">
               <h2 class="card__title text-overflow">Карачаево-Черкессия</h2>
-              <button class="button button__like"></button>
+              <button class="button button_like" type="submit"></button>
             </div>
           </li>
         </ul>
@@ -83,7 +85,7 @@
     </footer>
     <section class="popup">
       <div class="popup__container">
-        <button class="button button__close">
+        <button class="button button_close" type="submit">
           <img class="button__close-icon" src="./images/close-icon.svg" alt="Закрыть">
         </button>
         <h2 class="popup__title">Редактировать профиль</h2>
@@ -93,7 +95,7 @@
             <input class="form__item form__item_el_slogan" type="text" name="slogan" value="Исследователь океана"
               required>
           </fieldset>
-          <button class="button button__save" type="submit">Сохранить</button>
+          <button class="button button_save" type="submit">Сохранить</button>
         </form>
       </div>
     </section>

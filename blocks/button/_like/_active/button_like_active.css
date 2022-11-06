@@ -1,10 +1,10 @@
-.button__like_active {
+.button_like_active {
   background: url(../../../../images/like-active-icon.svg) no-repeat;
   width: 22px;
   height: 19px;
   opacity: 1;
 }
 
-.button__like_active:hover {
+.button_like_active:hover {
   opacity: 1;
 }

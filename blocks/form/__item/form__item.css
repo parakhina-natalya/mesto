@@ -20,6 +20,5 @@
 }
 
 .form__item:focus {
-  outline-color: rgba(0, 0, 0, .2);
-  background-color: transparent;
+  outline-color: transparent;
 }
