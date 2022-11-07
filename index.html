@@ -9,27 +9,24 @@
   <link rel="stylesheet" href="pages/index.css">
 </head>
 
-<body class="page">
-  <div class="page__container">
+<body class="body">
+  <div class="page">
     <header class="header">
       <img class="header__logo" src="./images/logo-mesto.svg" alt="логотип проекта Место">
-      <hr class="header__line">
     </header>
     <main class="content">
       <section class="profile">
-        <div class="profile__avatar">
-          <img class="profile__avatar-photo" src="./images/avatar.jpg" alt="Жак-Ив Кусто">
-        </div>
+          <img class="profile__avatar" src="./images/avatar.jpg" alt="Жак-Ив Кусто">
         <div class="profile__info">
           <div class="profile__box">
             <h1 class="profile__author text-overflow">Жак-Ив Кусто</h1>
-            <button class="button button_edit" type="submit">
+            <button class="button button_el_edit" type="button">
               <img class="button__edit-icon" src="./images/edit-icon.svg" alt="Редактировать профиль">
             </button>
           </div>
           <p class="profile__slogan text-overflow">Исследователь океана</p>
         </div>
-        <button class="button button_add" type="submit">
+        <button class="button button_el_add" type="button">
           <img class="button__add-icon" src="./images/add-icon.svg" alt="Добавить">
         </button>
       </section>
@@ -39,42 +36,42 @@
             <img class="card__picture" src="./images/karachaevsk.jpg" alt="древние постройки в Карачаевске">
             <div class="card__info">
               <h2 class="card__title text-overflow">Карачаевск</h2>
-              <button class="button button_like" type="submit"></button>
+              <button class="button button_el_like" type="button"></button>
             </div>
           </li>
           <li class="card">
             <img class="card__picture" src="./images/elbrus.jpg" alt="гора Эльбрус">
             <div class="card__info">
               <h2 class="card__title text-overflow">Гора Эльбрус</h2>
-              <button class="button button_like" type="submit"></button>
+              <button class="button button_el_like" type="button"></button>
             </div>
           </li>
           <li class="card">
             <img class="card__picture" src="./images/dombai.jpg" alt="Домбай">
             <div class="card__info">
               <h2 class="card__title text-overflow">Домбай</h2>
-              <button class="button button_like" type="submit"></button>
+              <button class="button button_el_like" type="button"></button>
             </div>
           </li>
           <li class="card">
             <img class="card__picture" src="./images/elbrus.jpg" alt="гора Эльбрус">
             <div class="card__info">
               <h2 class="card__title text-overflow">Гора Эльбрус</h2>
-              <button class="button button_like" type="submit"></button>
+              <button class="button button_el_like" type="button"></button>
             </div>
           </li>
           <li class="card">
             <img class="card__picture" src="./images/dombai.jpg" alt="Домбай">
             <div class="card__info">
               <h2 class="card__title text-overflow">Домбай</h2>
-              <button class="button button_like" type="submit"></button>
+              <button class="button button_el_like" type="button"></button>
             </div>
           </li>
           <li class="card">
             <img class="card__picture" src="./images/karachaevsk.jpg" alt="древние постройки в Карачаевске">
             <div class="card__info">
               <h2 class="card__title text-overflow">Карачаево-Черкессия</h2>
-              <button class="button button_like" type="submit"></button>
+              <button class="button button_el_like" type="button"></button>
             </div>
           </li>
         </ul>
@@ -85,17 +82,17 @@
     </footer>
     <section class="popup">
       <div class="popup__container">
-        <button class="button button_close" type="submit">
+        <button class="button button_el_close" type="button">
           <img class="button__close-icon" src="./images/close-icon.svg" alt="Закрыть">
         </button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="form">
+        <form class="form" name="form">
           <fieldset class="form__input-container">
-            <input class="form__item form__item_el_author" type="text" name="name" value="Жак-Ив Кусто" required>
-            <input class="form__item form__item_el_slogan" type="text" name="slogan" value="Исследователь океана"
+            <input class="form__item form__item_el_author" type="text" name="name" value="" required>
+            <input class="form__item form__item_el_slogan" type="text" name="slogan" value=""
               required>
           </fieldset>
-          <button class="button button_save" type="submit">Сохранить</button>
+          <button class="button button_el_save" type="submit">Сохранить</button>
         </form>
       </div>
     </section>

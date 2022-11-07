@@ -1,4 +1,4 @@
-.button_close {
+.button_el_close {
   width: 32px;
   height: 32px;
   position: absolute;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width: 918px) {
-  .button_close {
+  .button_el_close {
     width: 20px;
     height: 20px;
     right: -36px;
@@ -16,11 +16,11 @@
 }
 
 @media screen and (max-width: 450px) {
-  .button_close {
+  .button_el_close {
     right: 0;
   }
 }
 
-.button_close:hover {
+.button_el_close:hover {
   opacity: .6;
 }

@@ -1,7 +1,6 @@
-let btnEdit = document.querySelector('.button_edit');
+let btnEdit = document.querySelector('.button_el_edit');
 let popup = document.querySelector('.popup');
-let btnClose = popup.querySelector('.button_close');
-let btnSave = popup.querySelector('.button_save');
+let btnClose = popup.querySelector('.button_el_close');
 let formElement = document.querySelector('.form');
 let authorInput = formElement.querySelector('.form__item_el_author');
 let sloganInput = formElement.querySelector('.form__item_el_slogan');
@@ -10,14 +9,13 @@ let slogan = document.querySelector('.profile__slogan');
 
 function popupOpen() {
 	popup.classList.add('popup_opened');
+	authorInput.value = author.textContent;
+	sloganInput.value = slogan.textContent;
 }
 
 function popupClose() {
 	popup.classList.remove('popup_opened');
 }
-
-btnEdit.addEventListener('click', popupOpen);
-btnClose.addEventListener('click', popupClose);
 
 function formSubmitHandler(evt) {
 	if (authorInput.value.length && sloganInput.value.length !== 0) {
@@ -28,6 +26,8 @@ function formSubmitHandler(evt) {
 	}
 }
 
+btnEdit.addEventListener('click', popupOpen);
+btnClose.addEventListener('click', popupClose);
 formElement.addEventListener('submit', formSubmitHandler);
-btnSave.addEventListener('click', formSubmitHandler);
+
 

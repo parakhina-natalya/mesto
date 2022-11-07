@@ -1,4 +1,4 @@
-.button_save {
+.button_el_save {
   margin-top: 48px;
   width: 358px;
   height: 50px;
@@ -13,7 +13,7 @@
 }
 
 @media screen and (max-width: 918px) {
-  .button_save {
+  .button_el_save {
     margin-top: 45px;
     width: 238px;
     height: 46px;
@@ -22,6 +22,6 @@
   }
 }
 
-.button_save:hover {
+.button_el_save:hover {
   opacity: .8;
 }

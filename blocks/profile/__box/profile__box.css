@@ -1,5 +1,10 @@
 .profile__box {
   display: flex;
-  justify-content: center;
   padding-bottom: 8px;
+}
+
+@media screen and (max-width: 918px) {
+  .profile__box {
+    justify-content: center;
+  }
 }
