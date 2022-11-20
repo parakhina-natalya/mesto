@@ -30,73 +30,71 @@
           <img class="button__add-icon" src="./images/add-icon.svg" alt="Добавить">
         </button>
       </section>
-      <section class="cards">
+      <section class="cards" aria-label="Фотогалерея">
         <ul class="cards__box">
-          <li class="card">
-            <img class="card__picture" src="./images/karachaevsk.jpg" alt="древние постройки в Карачаевске">
-            <div class="card__info">
-              <h2 class="card__title text-overflow">Карачаевск</h2>
-              <button class="button button_el_like" type="button"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img class="card__picture" src="./images/elbrus.jpg" alt="гора Эльбрус">
-            <div class="card__info">
-              <h2 class="card__title text-overflow">Гора Эльбрус</h2>
-              <button class="button button_el_like" type="button"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img class="card__picture" src="./images/dombai.jpg" alt="Домбай">
-            <div class="card__info">
-              <h2 class="card__title text-overflow">Домбай</h2>
-              <button class="button button_el_like" type="button"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img class="card__picture" src="./images/elbrus.jpg" alt="гора Эльбрус">
-            <div class="card__info">
-              <h2 class="card__title text-overflow">Гора Эльбрус</h2>
-              <button class="button button_el_like" type="button"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img class="card__picture" src="./images/dombai.jpg" alt="Домбай">
-            <div class="card__info">
-              <h2 class="card__title text-overflow">Домбай</h2>
-              <button class="button button_el_like" type="button"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img class="card__picture" src="./images/karachaevsk.jpg" alt="древние постройки в Карачаевске">
-            <div class="card__info">
-              <h2 class="card__title text-overflow">Карачаево-Черкессия</h2>
-              <button class="button button_el_like" type="button"></button>
-            </div>
-          </li>
+        
         </ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
-    <section class="popup">
+    <section class="popup popup_edit">
       <div class="popup__container">
-        <button class="button button_el_close" type="button">
+        <button class="button button_el_close button_el_close-edit" type="button">
           <img class="button__close-icon" src="./images/close-icon.svg" alt="Закрыть">
         </button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="form" name="form">
+        <form class="form form_edit" name="form_edit">
           <fieldset class="form__input-container">
-            <input class="form__item form__item_el_author" type="text" name="name" value="" required>
-            <input class="form__item form__item_el_slogan" type="text" name="slogan" value=""
-              required>
+            <input class="form__item form__item_el_author" type="text" name="author" value="" placeholder="Имя" required>
+            <input class="form__item form__item_el_slogan" type="text" name="slogan" value="" placeholder="Профессия" required>
           </fieldset>
-          <button class="button button_el_save" type="submit">Сохранить</button>
+          <button class="button button_el_save button_el_save-edit" type="submit">Сохранить</button>
         </form>
       </div>
     </section>
+   <section class="popup popup_add">
+      <div class="popup__container">
+        <button class="button button_el_close button_el_close-add" type="button">
+          <img class="button__close-icon" src="./images/close-icon.svg" alt="Закрыть">
+        </button>
+        <h2 class="popup__title">Новое место</h2>
+        <form class="form form_add" name="form_add">
+          <fieldset class="form__input-container">
+            <input class="form__item form__item_el_title" type="text" name="title" value="" placeholder="Название" required>
+            <input class="form__item form__item_el_img" type="text" name="img" value="" placeholder="Ссылка на картинку" required>
+          </fieldset>
+          <button class="button button_el_save button_el_save-add" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </section>
+    <section class="popup popup_figure" aria-label="Фотография">
+      <div class="popup__container_figure">
+        <button class="button button_el_close button_el_close-figure" type="button">
+          <img class="button__close-icon" src="./images/close-icon.svg" alt="Закрыть">
+        </button>
+        <figure class="figure">
+          <img class="figure__img" src="#" alt="">
+          <figcaption class="figure__caption"></figcaption>
+        </figure>
+      </div>
+    </section>
   </div>
+
+  <template id="card-template">
+    <li class="card">
+      <button class="button button_el_delete" type="button">
+        <img class="button__add-delete" src="./images/del-icon.svg" alt="Удалить">
+      </button>
+      <img class="card__img" src="#" alt="">
+      <div class="card__info">
+        <h2 class="card__title text-overflow"></h2>
+        <button class="button button_el_like" type="button"></button>
+      </div>
+    </li>
+  </template>
+
   <script src="./scripts/index.js"></script>
 </body>
 
