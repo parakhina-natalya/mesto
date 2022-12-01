@@ -16,6 +16,7 @@
 @import url(../blocks/button/_el/button_el_close.css);
 @import url(../blocks/button/__close-icon/button__close-icon.css);
 @import url(../blocks/button/_el/button_el_save.css);
+@import url(../blocks/button/_el/_disabled/button_el_save_disabled.css);
 @import url(../blocks/text-overflow/text-overflow.css);
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
