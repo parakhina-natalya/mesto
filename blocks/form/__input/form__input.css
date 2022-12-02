@@ -1,4 +1,4 @@
-.form__item {
+.form__input {
   border: none;
   width: 100%;
   height: 27px;
@@ -15,10 +15,10 @@
   border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
 
-.form__item:last-child {
+.form__input:last-child {
   margin-bottom: 0;
 }
 
-.form__item:focus {
+.form__input:focus {
   outline-color: transparent;
 }

@@ -1,18 +1,19 @@
 const content = document.querySelector('.content');
 const cardsBox = content.querySelector('.cards__box');
 const editBtn = content.querySelector('.button_el_edit');
+const popupElement = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup_edit');
 const closeButtons = document.querySelectorAll('.button_el_close');
 const addBtn = content.querySelector('.button_el_add');
 const popupAdd = document.querySelector('.popup_add');
 const formEdit = document.querySelector('.form_edit');
-const authorInput = formEdit.querySelector('.form__item_el_author');
-const sloganInput = formEdit.querySelector('.form__item_el_slogan');
+const authorInput = formEdit.querySelector('.form__input_el_author');
+const sloganInput = formEdit.querySelector('.form__input_el_slogan');
 const author = document.querySelector('.profile__author');
 const slogan = document.querySelector('.profile__slogan');
 const formAdd = document.querySelector('.form_add');
-const titleInput = formAdd.querySelector('.form__item_el_title');
-const imgInput = formAdd.querySelector('.form__item_el_img');
+const titleInput = formAdd.querySelector('.form__input_el_title');
+const imgInput = formAdd.querySelector('.form__input_el_img');
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
 const popupFigure = document.querySelector('.popup_figure');
 const imgFigure = popupFigure.querySelector('.figure__img');
@@ -75,7 +76,7 @@ function handleCardFormSubmit(evt) {
 }
 
 function likeCard(evt) {
-  evt.target.classList.toggle('button_el_like_active')
+  evt.target.classList.toggle('button_el_like_active');
 };
 
 function delCard(evt) {
@@ -123,13 +124,27 @@ closeButtons.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup));
 });
 
+popupElement.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target === evt.currentTarget) {
+      closePopup(popup);
+    }
+  });
+
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === "Escape") {
+      closePopup(popup);
+    }
+  });
+
+});
+
 formEdit.addEventListener('submit', handleProfileFormSubmit);
 formAdd.addEventListener('submit', handleCardFormSubmit);
 
 initialCards.forEach((card) => {
   renderCard(card);
 });
-
 
 
 
