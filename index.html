@@ -47,37 +47,46 @@
           <img class="button__close-icon" src="./images/close-icon.svg" alt="Закрыть">
         </button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="form form_edit" name="form_edit">
+
+        <form class="form form_edit" name="form_edit" novalidate>
           <fieldset class="form__input-container">
-            <input class="form__input form__input_el_author form__input_type_error" type="text" name="author" value=""
-              placeholder="Имя" required>
-            <input class="form__input form__input_el_slogan" type="text" name="slogan" value="" placeholder="Профессия"
-              required>
+            <input class="form__input form__input_el_author" id="author-input" type="text" name="author" value=""
+              placeholder="Имя" required minlength="2" maxlength="40">
+              <span class="author-input-error form__error"></span>
+
+            <input class="form__input form__input_el_slogan" id="slogan-input" type="text" name="slogan" value="" placeholder="Профессия"
+              required minlength="2" maxlength="200">
+              <span class="slogan-input-error form__error"></span>
           </fieldset>
-          <button class="button button_el_save button_el_save-edit button_el_save_disabled"
+          <button class="button button_el_save button_el_save-edit"
             type="submit">Сохранить</button>
         </form>
       </div>
     </section>
-
     <section class="popup popup_add">
       <div class="popup__container">
         <button class="button button_el_close" type="button">
           <img class="button__close-icon" src="./images/close-icon.svg" alt="Закрыть">
         </button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="form form_add" name="form_add">
+
+        <form class="form form_add" name="form_add" novalidate>
           <fieldset class="form__input-container">
-            <input class="form__input form__input_el_title" type="text" name="title" value="" placeholder="Название"
-              required>
-            <input class="form__input form__input_el_img" type="text" name="img" value=""
+            <input class="form__input form__input_el_title" id="title-input" type="text" name="title" value="" placeholder="Название"
+              required minlength="2" maxlength="30">
+              <span class="title-input-error form__error"></span>
+
+            <input class="form__input form__input_el_url" id="url-input" type="url" name="url" value=""
               placeholder="Ссылка на картинку" required>
+              <span class="url-input-error form__error"></span>
           </fieldset>
-          <button class="button button_el_save button_el_save-add button_el_save_disabled"
+          <button class="button button_el_save button_el_save-add" disabled
             type="submit">Сохранить</button>
         </form>
       </div>
     </section>
+
+
 
     <section class="popup popup_figure" aria-label="Фотография">
       <div class="popup__container-figure">
@@ -91,7 +100,6 @@
       </div>
     </section>
   </div>
-
   <template id="card-template">
     <li class="card">
       <button class="button button_el_delete" type="button">
