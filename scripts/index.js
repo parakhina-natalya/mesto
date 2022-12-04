@@ -18,6 +18,7 @@ const cardTemplate = document.querySelector('#card-template').content.querySelec
 const popupFigure = document.querySelector('.popup_figure');
 const imgFigure = popupFigure.querySelector('.figure__img');
 const captionFigure = popupFigure.querySelector('.figure__caption');
+
 const initialCards = [
   {
     title: 'Архыз',
@@ -58,17 +59,17 @@ function closePopup(а) {
 }
 
 function handleProfileFormSubmit(evt) {
-    evt.preventDefault();
-    author.textContent = authorInput.value;
-    slogan.textContent = sloganInput.value;
-    closePopup(popupEdit);
+  evt.preventDefault();
+  author.textContent = authorInput.value;
+  slogan.textContent = sloganInput.value;
+  closePopup(popupEdit);
 }
 
 function handleCardFormSubmit(evt) {
-    evt.preventDefault();
-    renderCard({ title: titleInput.value, img: imgInput.value });
-    evt.target.reset();
-    closePopup(popupAdd);
+  evt.preventDefault();
+  renderCard({ title: titleInput.value, img: imgInput.value });
+  evt.target.reset();
+  closePopup(popupAdd);
 }
 
 function likeCard(evt) {
@@ -114,23 +115,46 @@ editBtn.addEventListener('click', () => {
 addBtn.addEventListener('click', () => {
   openPopup(popupAdd);
   formAdd.reset();
+  document.querySelector('.button_el_save-add').setAttribute('disabled', true);
 });
+
+const delInputError = (popup) => {
+  const inputs = Array.from(popup.querySelectorAll('.form__input'));
+  inputs.forEach((input) => {
+    input.classList.remove('form__input_el_error');
+  });
+};
+
+const delErrorText = (popup) => {
+  const textErrors = Array.from(popup.querySelectorAll('.form__error'));
+  textErrors.forEach((textError) => {
+    textError.textContent = "";
+  });
+}
 
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
-  button.addEventListener('click', () => closePopup(popup));
+  button.addEventListener('click', () => {
+    closePopup(popup);
+    delInputError(popup);
+    delErrorText(popup);
+  });
 });
 
 popupElement.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
     if (evt.target === evt.currentTarget) {
       closePopup(popup);
+      delInputError(popup);
+      delErrorText(popup);
     }
   });
 
   document.addEventListener('keydown', (evt) => {
     if (evt.key === "Escape") {
       closePopup(popup);
+      delInputError(popup);
+      delErrorText(popup);
     }
   });
 });
@@ -141,7 +165,5 @@ formAdd.addEventListener('submit', handleCardFormSubmit);
 initialCards.forEach((card) => {
   renderCard(card);
 });
-
-
 
 
