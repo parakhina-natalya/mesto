@@ -40,9 +40,7 @@
 @import url(../blocks/figure/figure.css);
 @import url(../blocks/figure/__img/figure__img.css);
 @import url(../blocks/figure/__caption/figure__caption.css);
-@import url(../blocks/form/__error/form__error.css);
-@import url(../blocks/form/__input/_el/form__input_el_error.css);
-@import url(../blocks/form/__input-container/form__input-container.css);
+@import url(../blocks/form/form.css);
 @import url(../blocks/form/__input/form__input.css);
-
-
+@import url(../blocks/form/__input/_el/form__input_el_error.css);
+@import url(../blocks/form/__error/form__error.css);
