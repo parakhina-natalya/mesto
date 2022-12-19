@@ -1,7 +1,9 @@
+import Card from './Card.js';
+
 const content = document.querySelector('.content');
 const cardsBox = content.querySelector('.cards__box');
 const editBtn = content.querySelector('.button_el_edit');
-const editBtnSave = content.querySelector('.button_el_save-edit')
+//const editBtnSave = content.querySelector('.button_el_save-edit')
 const popupElements = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup_edit');
 const closeButtons = document.querySelectorAll('.button_el_close');
@@ -48,9 +50,11 @@ const initialCards = [
   }
 ];
 
-const renderCard = (сard) => {
-  cardsBox.prepend(generateCard(сard));
+const renderCard = (card, cardTemplate) => {
+  const newRenderCard = new Card(card, cardTemplate);
+  cardsBox.prepend(newRenderCard.generateCard());
 };
+
 
 function closeByEsc(evt) {
   if (evt.key === 'Escape') {
@@ -78,26 +82,28 @@ function handleProfileFormSubmit(evt) {
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  renderCard({ title: titleInput.value, img: imgInput.value });
+  renderCard({ title: titleInput.value, img: imgInput.value }, cardTemplate);
   evt.target.reset();
   closePopup(popupAdd);
 }
 
-function likeCard(evt) {
-  evt.target.classList.toggle('button_el_like_active');
-};
+//function likeCard(evt) {
+//  evt.target.classList.toggle('button_el_like_active');
+//};
 
-function delCard(evt) {
-  evt.target.closest('.card').remove();
-};
+//function delCard(evt) {
+//  evt.target.closest('.card').remove();
+//};
 
 function renderFigure(img, title) {
-  imgFigure.src = img.src;
-  imgFigure.alt = title.textContent;
-  captionFigure.textContent = title.textContent;
+  imgFigure.src = img;
+  imgFigure.alt = title;
+  captionFigure.textContent = title;
+  openPopup(popupFigure);
 };
 
-function generateCard(card) {
+
+/*function generateCard(card) {
   const cardClone = cardTemplate.cloneNode(true);
   const img = cardClone.querySelector('.card__img');
   img.src = card.img;
@@ -116,6 +122,8 @@ function generateCard(card) {
 
   return cardClone;
 };
+*/
+
 
 editBtn.addEventListener('click', () => {
   openPopup(popupEdit);
@@ -148,5 +156,7 @@ formEdit.addEventListener('submit', handleProfileFormSubmit);
 formAdd.addEventListener('submit', handleCardFormSubmit);
 
 initialCards.forEach((card) => {
-  renderCard(card);
+  renderCard(card, cardTemplate);
 });
+
+export {renderFigure};
