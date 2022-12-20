@@ -1,9 +1,9 @@
 import Card from './Card.js';
+import FormValidator from './FormValidator.js';
 
 const content = document.querySelector('.content');
 const cardsBox = content.querySelector('.cards__box');
 const editBtn = content.querySelector('.button_el_edit');
-//const editBtnSave = content.querySelector('.button_el_save-edit')
 const popupElements = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup_edit');
 const closeButtons = document.querySelectorAll('.button_el_close');
@@ -50,6 +50,13 @@ const initialCards = [
   }
 ];
 
+const elementValidation = {
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.button_el_save',
+  inputErrorClass: 'form__input_el_error'
+};
+
 const renderCard = (card, cardTemplate) => {
   const newRenderCard = new Card(card, cardTemplate);
   cardsBox.prepend(newRenderCard.generateCard());
@@ -59,9 +66,9 @@ const renderCard = (card, cardTemplate) => {
 function closeByEsc(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
-    closePopup(openedPopup); 
+    closePopup(openedPopup);
   }
-}  
+}
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -87,14 +94,6 @@ function handleCardFormSubmit(evt) {
   closePopup(popupAdd);
 }
 
-//function likeCard(evt) {
-//  evt.target.classList.toggle('button_el_like_active');
-//};
-
-//function delCard(evt) {
-//  evt.target.closest('.card').remove();
-//};
-
 function renderFigure(img, title) {
   imgFigure.src = img;
   imgFigure.alt = title;
@@ -102,39 +101,19 @@ function renderFigure(img, title) {
   openPopup(popupFigure);
 };
 
-
-/*function generateCard(card) {
-  const cardClone = cardTemplate.cloneNode(true);
-  const img = cardClone.querySelector('.card__img');
-  img.src = card.img;
-  img.alt = card.title;
-
-  const title = cardClone.querySelector('.card__title');
-  title.textContent = card.title;
-
-  const likeBtn = cardClone.querySelector('.button_el_like').addEventListener('click', likeCard);
-  const deleteBtn = cardClone.querySelector('.button_el_delete').addEventListener('click', delCard);
-
-  img.addEventListener('click', () => {
-    renderFigure(img, title);
-    openPopup(popupFigure);
-  });
-
-  return cardClone;
-};
-*/
-
-
 editBtn.addEventListener('click', () => {
   openPopup(popupEdit);
   authorInput.value = author.textContent;
   sloganInput.value = slogan.textContent;
+  const formValidator = new FormValidator(elementValidation, popupEdit);
+  formValidator.enableValidation();
 });
 
 addBtn.addEventListener('click', () => {
   openPopup(popupAdd);
   formAdd.reset();
-  addBtnSave.setAttribute('disabled', true);
+  const formValidator = new FormValidator(elementValidation, popupAdd);
+  formValidator.enableValidation();
 });
 
 closeButtons.forEach((button) => {
@@ -159,4 +138,4 @@ initialCards.forEach((card) => {
   renderCard(card, cardTemplate);
 });
 
-export {renderFigure};
+export { renderFigure };
