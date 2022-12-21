@@ -3,13 +3,13 @@ import FormValidator from './FormValidator.js';
 
 const content = document.querySelector('.content');
 const cardsBox = content.querySelector('.cards__box');
-const editBtn = content.querySelector('.button_el_edit');
+const buttonEdit = content.querySelector('.button_el_edit');
 const popupElements = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup_edit');
-const closeButtons = document.querySelectorAll('.button_el_close');
-const addBtn = content.querySelector('.button_el_add');
+const buttonsClose = document.querySelectorAll('.button_el_close');
+const buttonAdd = content.querySelector('.button_el_add');
+const buttonAddSave = document.querySelector('.button_el_save-add');
 const popupAdd = document.querySelector('.popup_add');
-const addBtnSave = document.querySelector('.button_el_save-add');
 const formEdit = document.querySelector('.form_edit');
 const authorInput = formEdit.querySelector('.form__input_el_author');
 const sloganInput = formEdit.querySelector('.form__input_el_slogan');
@@ -18,7 +18,7 @@ const slogan = document.querySelector('.profile__slogan');
 const formAdd = document.querySelector('.form_add');
 const titleInput = formAdd.querySelector('.form__input_el_title');
 const imgInput = formAdd.querySelector('.form__input_el_url');
-const cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
+const cardTemplate = '#card-template';
 const popupFigure = document.querySelector('.popup_figure');
 const imgFigure = popupFigure.querySelector('.figure__img');
 const captionFigure = popupFigure.querySelector('.figure__caption');
@@ -57,11 +57,14 @@ const elementValidation = {
   inputErrorClass: 'form__input_el_error'
 };
 
+const createCard = (card, cardTemplate) => {
+  return new Card(card, cardTemplate);
+}
+
 const renderCard = (card, cardTemplate) => {
-  const newRenderCard = new Card(card, cardTemplate);
+  const newRenderCard = createCard(card, cardTemplate);
   cardsBox.prepend(newRenderCard.generateCard());
 };
-
 
 function closeByEsc(evt) {
   if (evt.key === 'Escape') {
@@ -101,22 +104,25 @@ function renderFigure(img, title) {
   openPopup(popupFigure);
 };
 
-editBtn.addEventListener('click', () => {
+const formValidatorEdit = new FormValidator(elementValidation, popupEdit);
+formValidatorEdit.enableValidation();
+
+buttonEdit.addEventListener('click', () => {
   openPopup(popupEdit);
   authorInput.value = author.textContent;
   sloganInput.value = slogan.textContent;
-  const formValidator = new FormValidator(elementValidation, popupEdit);
-  formValidator.enableValidation();
 });
 
-addBtn.addEventListener('click', () => {
+const formValidatorAdd = new FormValidator(elementValidation, popupAdd);
+formValidatorAdd.enableValidation();
+
+buttonAdd.addEventListener('click', () => {
   openPopup(popupAdd);
   formAdd.reset();
-  const formValidator = new FormValidator(elementValidation, popupAdd);
-  formValidator.enableValidation();
+  buttonAddSave.setAttribute('disabled', true);
 });
 
-closeButtons.forEach((button) => {
+buttonsClose.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => {
     closePopup(popup);

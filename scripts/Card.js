@@ -1,16 +1,17 @@
 import { renderFigure } from './index.js';
 
-
 class Card {
-  constructor(card, cardTemplate) {
+  constructor(card, cardTemplate ) {
     this._title = card.title;
     this._img = card.img;
     this._cardTemplate = cardTemplate;
   }
 
-
   _getTemplate() {
-    const cardTemplateClone = this._cardTemplate.cloneNode(true);
+    const cardTemplateClone = document
+      .querySelector(this._cardTemplate)
+      .content.querySelector('.card')
+      .cloneNode(true);
 
     return cardTemplateClone;
   }
@@ -19,11 +20,9 @@ class Card {
     const titleElement = this._newCard.querySelector('.card__title');
     titleElement.textContent = this._title;
 
-    const imgElement = this._newCard.querySelector('.card__img');
-    imgElement.src = this._img;
-    imgElement.alt = this._title;
-
-    return imgElement;
+    this._imgElement = this._newCard.querySelector('.card__img');
+    this._imgElement.src = this._img;
+    this._imgElement.alt = this._title;
   }
 
   _deleteCard() {
@@ -31,32 +30,30 @@ class Card {
     this._newCard = null;
   }
 
-  _likeCard(likeButton) {
-    likeButton.classList.toggle('button_el_like_active');
+  _likeCard() {
+    this._likeButton.classList.toggle('button_el_like_active');
   }
 
-  _setEventListeners(imgElement) {
+  _setEventListeners() {
     const deleteButton = this._newCard.querySelector('.button_el_delete');
     deleteButton.addEventListener('click', () => {
       this._deleteCard();
     });
 
-
-    const likeButton = this._newCard.querySelector('.button_el_like');
-    likeButton.addEventListener('click', () => {
-      this._likeCard(likeButton);
+    this._likeButton = this._newCard.querySelector('.button_el_like');
+    this._likeButton.addEventListener('click', () => {
+      this._likeCard();
     });
 
-
-    imgElement.addEventListener('click', () => {
+    this._imgElement.addEventListener('click', () => {
       renderFigure(this._img, this._title);
     });
   }
 
   generateCard() {
     this._newCard = this._getTemplate();
-    const imgElement = this._setData();
-    this._setEventListeners(imgElement);
+    this._setData();
+    this._setEventListeners();
 
     return this._newCard;
   }
