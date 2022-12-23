@@ -1,3 +1,4 @@
+import { initialCards, elementValidation } from './constants.js';
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
 
@@ -6,9 +7,7 @@ const cardsBox = content.querySelector('.cards__box');
 const buttonEdit = content.querySelector('.button_el_edit');
 const popupElements = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup_edit');
-const buttonsClose = document.querySelectorAll('.button_el_close');
 const buttonAdd = content.querySelector('.button_el_add');
-const buttonAddSave = document.querySelector('.button_el_save-add');
 const popupAdd = document.querySelector('.popup_add');
 const formEdit = document.querySelector('.form_edit');
 const authorInput = formEdit.querySelector('.form__input_el_author');
@@ -22,40 +21,6 @@ const cardTemplate = '#card-template';
 const popupFigure = document.querySelector('.popup_figure');
 const imgFigure = popupFigure.querySelector('.figure__img');
 const captionFigure = popupFigure.querySelector('.figure__caption');
-
-const initialCards = [
-  {
-    title: 'Архыз',
-    img: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    title: 'Челябинская область',
-    img: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    title: 'Иваново',
-    img: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    title: 'Камчатка',
-    img: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    title: 'Холмогорский район',
-    img: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    title: 'Байкал',
-    img: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-const elementValidation = {
-  formSelector: '.form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.button_el_save',
-  inputErrorClass: 'form__input_el_error'
-};
 
 const createCard = (card, cardTemplate) => {
   return new Card(card, cardTemplate);
@@ -111,6 +76,7 @@ buttonEdit.addEventListener('click', () => {
   openPopup(popupEdit);
   authorInput.value = author.textContent;
   sloganInput.value = slogan.textContent;
+  formValidatorEdit.resetValidation();
 });
 
 const formValidatorAdd = new FormValidator(elementValidation, popupAdd);
@@ -119,21 +85,14 @@ formValidatorAdd.enableValidation();
 buttonAdd.addEventListener('click', () => {
   openPopup(popupAdd);
   formAdd.reset();
-  buttonAddSave.setAttribute('disabled', true);
-});
-
-buttonsClose.forEach((button) => {
-  const popup = button.closest('.popup');
-  button.addEventListener('click', () => {
-    closePopup(popup);
-  });
+  formValidatorAdd.resetValidation();
 });
 
 popupElements.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
-    if (evt.target === evt.currentTarget) {
+    if (evt.target === evt.currentTarget || evt.target.classList.contains('button__close-icon')) {
       closePopup(popup);
-    }
+    } 
   });
 });
 
