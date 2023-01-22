@@ -1,10 +1,9 @@
-import { renderFigure } from './index.js';
-
 class Card {
-  constructor(card, cardTemplate ) {
+  constructor(card, cardTemplate, handleCardClick) {
     this._title = card.title;
     this._img = card.img;
     this._cardTemplate = cardTemplate;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -46,7 +45,7 @@ class Card {
     });
 
     this._imgElement.addEventListener('click', () => {
-      renderFigure(this._img, this._title);
+      this._handleCardClick(this._img, this._title);
     });
   }
 

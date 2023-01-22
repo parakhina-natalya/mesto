@@ -47,7 +47,7 @@ class FormValidator {
     this._inputList.forEach((input) => {
       this._hideInputError(input);
     })
-  }; 
+  };
 
   _setEventListeners() {
     this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
@@ -66,8 +66,8 @@ class FormValidator {
 
   enableValidation() {
     this._formElement = this._popup.querySelector(this._formSelector);
- 
-      this._setEventListeners();
+
+    this._setEventListeners();
 
   };
 }
