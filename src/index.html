@@ -6,28 +6,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="pages/index.css">
 </head>
 
 <body class="body">
   <div class="page">
     <header class="header">
-      <img class="header__logo" src="./images/logo-mesto.svg" alt="логотип проекта Место">
+    </header>
+    </header>
+      <img class="header__logo" src="<%=require('./images/logo-mesto.svg')%>" alt="логотип проекта Место">
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/avatar.jpg" alt="Жак-Ив Кусто">
+        <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Жак-Ив Кусто">
         <div class="profile__info">
           <div class="profile__box">
             <h1 class="profile__author text-overflow">Жак-Ив Кусто</h1>
             <button class="button button_el_edit" type="button">
-              <img class="button__edit-icon" src="./images/edit-icon.svg" alt="Редактировать профиль">
+              <img class="button__edit-icon" src="<%=require('./images/edit-icon.svg')%>" alt="Редактировать профиль">
             </button>
           </div>
           <p class="profile__slogan text-overflow">Исследователь океана</p>
         </div>
         <button class="button button_el_add" type="button">
-          <img class="button__add-icon" src="./images/add-icon.svg" alt="Добавить">
+          <img class="button__add-icon" src="<%=require('./images/add-icon.svg')%>" alt="Добавить">
         </button>
       </section>
       <section class="cards" aria-label="Фотогалерея">
@@ -42,7 +43,7 @@
     <section class="popup popup_edit">
       <div class="popup__container">
         <button class="button button_el_close" type="button">
-          <img class="button__close-icon" src="./images/close-icon.svg" alt="Закрыть">
+          <img class="button__close-icon" src="<%=require('./images/close-icon.svg')%>" alt="Закрыть">
         </button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="form form_edit" name="form_edit" novalidate>
@@ -59,7 +60,7 @@
     <section class="popup popup_add">
       <div class="popup__container">
         <button class="button button_el_close" type="button">
-          <img class="button__close-icon" src="./images/close-icon.svg" alt="Закрыть">
+          <img class="button__close-icon" src="<%=require('./images/close-icon.svg')%>" alt="Закрыть">
         </button>
         <h2 class="popup__title">Новое место</h2>
         <form class="form form_add" name="form_add" novalidate>
@@ -76,7 +77,7 @@
     <section class="popup popup_figure" aria-label="Фотография">
       <div class="popup__container-figure">
         <button class="button button_el_close" type="button">
-          <img class="button__close-icon" src="./images/close-icon.svg" alt="Закрыть">
+          <img class="button__close-icon" src="<%=require('./images/close-icon.svg')%>" alt="Закрыть">
         </button>
         <figure class="figure">
           <img class="figure__img" src="#" alt="">
@@ -88,7 +89,7 @@
   <template id="card-template">
     <li class="card">
       <button class="button button_el_delete" type="button">
-        <img class="button__add-delete" src="./images/del-icon.svg" alt="Удалить">
+        <img class="button__add-delete" src="<%=require('./images/del-icon.svg')%>" alt="Удалить">
       </button>
       <img class="card__img" src="#" alt="">
       <div class="card__info">
