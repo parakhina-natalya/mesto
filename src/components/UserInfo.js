@@ -11,8 +11,8 @@ export default class UserInfo {
     };
   };
 
-  setUserInfo(newAuthor, newSlogan) {
-    this._author.textContent = newAuthor.value;
-    this._slogan.textContent = newSlogan.value;
+  setUserInfo(inputValues) {
+    this._author.textContent = inputValues.author;
+    this._slogan.textContent = inputValues.slogan;
   };
 };

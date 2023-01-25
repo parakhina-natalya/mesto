@@ -32,4 +32,19 @@ const elementValidation = {
   inputErrorClass: 'form__input_el_error'
 };
 
-export { initialCards, elementValidation };
+const content = document.querySelector('.content');
+const buttonEdit = content.querySelector('.button_el_edit');
+const popupEdit = document.querySelector('.popup_edit');
+const buttonAdd = content.querySelector('.button_el_add');
+const popupAdd = document.querySelector('.popup_add');
+const formEdit = document.querySelector('.form_edit');
+const authorInput = formEdit.querySelector('.form__input_el_author');
+const sloganInput = formEdit.querySelector('.form__input_el_slogan');
+const cardTemplate = '#card-template';
+
+export {
+  initialCards, elementValidation, cardTemplate,
+  buttonEdit, popupEdit,
+  buttonAdd, popupAdd,
+  authorInput, sloganInput,
+};
