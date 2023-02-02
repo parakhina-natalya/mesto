@@ -18,7 +18,7 @@
 .button_el_save{background-color:#000;border-radius:2px;color:#fff;font-family:Inter,Arial,sans-serif;font-size:18px;font-style:normal;font-weight:400;height:50px;line-height:1.22;margin-top:18px;width:358px}@media screen and (max-width:918px){.button_el_save{font-size:14px;height:46px;line-height:1.21;margin-top:15px;width:238px}}.button_el_save:hover{opacity:.8}.button_el_save:disabled{background-color:transparent;border:1px solid #000;border-radius:2px;color:#000;opacity:.2}.button_el_save:disabled:hover{cursor:default;opacity:.2}
 .text-overflow{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .profile{display:flex;flex-wrap:wrap;justify-content:center;max-width:880px;padding-bottom:51px}@media screen and (max-width:918px){.profile{margin:0 auto;max-width:282px;padding-bottom:36px}}
-.profile__avatar{border-radius:50%;height:120px;-o-object-fit:cover;object-fit:cover;width:120px}
+.profile__avatar{border-radius:50%;height:120px;-o-object-fit:cover;object-fit:cover;position:relative;width:120px}
 .profile__info{max-width:336px;padding-left:30px;padding-top:22px}@media screen and (max-width:918px){.profile__info{max-width:282px;padding-left:0;padding-top:26px;width:100%}}
 .profile__box{display:flex;padding-bottom:8px}@media screen and (max-width:918px){.profile__box{justify-content:center}}
 .profile__author{color:#fff;font-size:42px;font-weight:500;line-height:1.14;margin:0;max-width:294px;text-align:left}@media screen and (max-width:918px){.profile__author{font-size:27px;line-height:33px;max-width:189px;padding-left:28px;padding-right:10px;text-align:center}}
@@ -27,8 +27,9 @@
 .cards__box{-moz-column-gap:17px;column-gap:17px;display:flex;flex-wrap:wrap;justify-content:center;list-style:none;margin:0;padding:0;row-gap:20px}
 .card{background:#fff;border-radius:10px;font-size:0;overflow:hidden;position:relative;width:282px;z-index:0}
 .card__img{height:282px;-o-object-fit:cover;object-fit:cover;width:100%}
-.card__info{display:flex;justify-content:space-between;max-width:241px;padding:25px 20px 25px 21px}
-.card__title{color:#000;font-size:24px;font-weight:900;line-height:1.2;margin:0;max-width:194px}
+.card__info{display:flex;justify-content:space-between;max-width:241px;padding:22px 20px 19px 21px}
+.card__title{color:#000;font-size:24px;font-weight:900;line-height:1.2;margin:0;max-width:194px;padding-top:4px}
+.card__likes{color:#000;font-size:13px;line-height:16px;margin:0;padding-top:3px;text-align:center}.card__like-box{min-height:38px}
 .footer{padding-bottom:60px}@media screen and (max-width:918px){.footer{padding-bottom:36px}}
 .footer__copyright{color:#545454;font-size:18px;font-weight:400;line-height:1.22;margin:0}@media screen and (max-width:918px){.footer__copyright{font-size:14px;line-height:1.21;padding-left:19px;padding-right:19px}}
 .popup{align-items:center;background:rgba(0,0,0,.5);bottom:0;display:flex;justify-content:center;left:0;opacity:0;position:fixed;right:0;top:0;transition:visibility .3s,opacity .3s linear;visibility:hidden}
@@ -36,6 +37,7 @@
 .popup_opened{opacity:1;transition:visibility 0,opacity .3s linear;visibility:visible}
 .popup__container{background:#fff;border-radius:10px;box-shadow:0 0 25px rgba(0,0,0,.15);box-sizing:border-box;max-width:430px;padding:34px 36px 37px;position:relative;width:100%}@media screen and (max-width:918px){.popup__container{max-width:282px;padding:25px 22px}}
 .popup__title{color:#000;font-size:24px;font-weight:900;line-height:1.2;margin:0;padding-bottom:48px}@media screen and (max-width:918px){.popup__title{font-size:18px;line-height:1.22;padding-bottom:75px}}
+.popup__title-confirm{padding-bottom:13px}
 .popup__container-figure{background:transparent;padding:0;position:relative}
 .figure{margin:0}
 .figure__img{max-height:75vh;max-width:75vw;-o-object-fit:contain;object-fit:contain;width:100%}
