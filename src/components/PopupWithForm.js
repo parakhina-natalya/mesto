@@ -6,7 +6,9 @@ export default class PopupWithForm extends Popup {
     this._form = this._popupSelector.querySelector('.form');
     this._inputList = this._form.querySelectorAll('.form__input');
     this._handleFormSubmit = handleFormSubmit;
-  };
+    this._content = this._form.querySelector('.button__text-content');
+    this._loading = this._form.querySelector('.button__text-loading');
+  }
 
   _getInputValues() {
     this._formValues = {};
@@ -14,7 +16,17 @@ export default class PopupWithForm extends Popup {
       this._formValues[input.name] = input.value;
     });
     return this._formValues;
+  }
+
+ renderLoading(isLoading) {
+  if (isLoading) {
+    this._loading.classList.remove('button__off');
+    this._content.classList.add('button__off');
+  } else {
+    this._loading.classList.add('button__off');
+    this._content.classList.remove('button__off');
   };
+}
 
   setEventListeners() {
     super.setEventListeners();
@@ -22,10 +34,10 @@ export default class PopupWithForm extends Popup {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
     });
-  };
+  }
 
   close() {
     super.close();
     this._form.reset();
-  };
-};
+  }
+}

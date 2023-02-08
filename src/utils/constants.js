@@ -1,29 +1,10 @@
-const initialCards = [
-  {
-    title: 'Архыз',
-    img: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    title: 'Челябинская область',
-    img: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    title: 'Иваново',
-    img: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    title: 'Камчатка',
-    img: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    title: 'Холмогорский район',
-    img: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    title: 'Байкал',
-    img: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+const configApi = {
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-58',
+  headers: {
+    authorization: '1d69b9f0-d49a-47d2-84a3-fc000deead31',
+    'Content-Type': 'application/json'
   }
-];
+};
 
 const elementValidation = {
   formSelector: '.form',
@@ -41,10 +22,13 @@ const formEdit = document.querySelector('.form_edit');
 const authorInput = formEdit.querySelector('.form__input_el_author');
 const sloganInput = formEdit.querySelector('.form__input_el_slogan');
 const cardTemplate = '#card-template';
+const buttonAvatar = document.querySelector('.profile__avatar-box');
+const popupAvatar = document.querySelector('.popup_avatar');
 
 export {
-  initialCards, elementValidation, cardTemplate,
+  configApi, elementValidation, cardTemplate,
   buttonEdit, popupEdit,
-  buttonAdd, popupAdd,
-  authorInput, sloganInput,
+  buttonAdd, popupAdd, 
+  buttonAvatar, popupAvatar,
+  authorInput, sloganInput
 };

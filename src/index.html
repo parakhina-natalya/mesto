@@ -15,15 +15,18 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Жак-Ив Кусто">
+
+        <div class="profile__avatar-box">
+          <img class="profile__avatar" src="#" alt="аватар">
+        </div>
         <div class="profile__info">
           <div class="profile__box">
-            <h1 class="profile__author text-overflow">Жак-Ив Кусто</h1>
+            <h1 class="profile__author text-overflow"></h1>
             <button class="button button_el_edit" type="button">
               <img class="button__edit-icon" src="<%=require('./images/edit-icon.svg')%>" alt="Редактировать профиль">
             </button>
           </div>
-          <p class="profile__slogan text-overflow">Исследователь океана</p>
+          <p class="profile__slogan text-overflow"></p>
         </div>
         <button class="button button_el_add" type="button">
           <img class="button__add-icon" src="<%=require('./images/add-icon.svg')%>" alt="Добавить">
@@ -38,6 +41,7 @@
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
+
     <section class="popup popup_edit">
       <div class="popup__container">
         <button class="button button_el_close" type="button">
@@ -49,12 +53,47 @@
             placeholder="Имя" required minlength="2" maxlength="40">
           <span class="author-input-error form__error"></span>
           <input class="form__input form__input_el_slogan" id="slogan-input" type="text" name="slogan" value=""
-            placeholder="Профессия" required minlength="2" maxlength="200">
+            placeholder="О себе" required minlength="2" maxlength="200">
           <span class="slogan-input-error form__error"></span>
-          <button class="button button_el_save button_el_save-edit" type="submit">Сохранить</button>
+          <button class="button button_el_save button_el_save-edit" type="submit">
+            <span class="button__text-content">Сохранить</span>
+            <span class="button__text-loading button__off">Сохранение...</span>
+          </button>
         </form>
       </div>
     </section>
+
+    <section class="popup popup_confirm">
+      <div class="popup__container">
+        <button class="button button_el_close" type="button">
+          <img class="button__close-icon" src="<%=require('./images/close-icon.svg')%>" alt="Закрыть">
+        </button>
+        <h2 class="popup__title popup__title-confirm">Вы уверены?</h2>
+        <form class="form form_confirm" name="form_confirm" novalidate>
+          <button class="button button_el_save button_el_save-confirm" type="submit">Да</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="popup popup_avatar">
+      <div class="popup__container">
+        <button class="button button_el_close" type="button">
+          <img class="button__close-icon" src="<%=require('./images/close-icon.svg')%>" alt="Закрыть">
+        </button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="form form_avatar" name="form_avatar" novalidate>
+          <input class="form__input form__input_el_avatar" id="avatar-input" type="url" name="avatar" value=""
+            placeholder="Ссылка на аватар" required>
+          <span class="avatar-input-error form__error"></span>
+
+          <button class="button button_el_save button_el_save-avatar" type="submit">
+            <span class="button__text-content">Сохранить</span>
+            <span class="button__text-loading button__off">Сохранение...</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
     <section class="popup popup_add">
       <div class="popup__container">
         <button class="button button_el_close" type="button">
@@ -68,10 +107,14 @@
           <input class="form__input form__input_el_url" id="url-input" type="url" name="url" value=""
             placeholder="Ссылка на картинку" required>
           <span class="url-input-error form__error"></span>
-          <button class="button button_el_save button_el_save-add" type="submit">Сохранить</button>
+          <button class="button button_el_save button_el_save-add" type="submit">
+            <span class="button__text-content">Создать</span>
+            <span class="button__text-loading button__off">Создание...</span>
+          </button>
         </form>
       </div>
     </section>
+
     <section class="popup popup_figure" aria-label="Фотография">
       <div class="popup__container-figure">
         <button class="button button_el_close" type="button">
@@ -84,6 +127,7 @@
       </div>
     </section>
   </div>
+
   <template id="card-template">
     <li class="card">
       <button class="button button_el_delete" type="button">
@@ -92,7 +136,10 @@
       <img class="card__img" src="#" alt="">
       <div class="card__info">
         <h2 class="card__title text-overflow"></h2>
-        <button class="button button_el_like" type="button"></button>
+        <div class="card__like-box">
+          <button class="button button_el_like" type="button"></button>
+          <p class="card__likes-total"></p>
+        </div>
       </div>
     </li>
   </template>
