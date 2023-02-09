@@ -4,30 +4,26 @@ class Api {
     this._headers = configApi.headers;
   }
 
+  _getResponseData(res) {
+    if (res.ok) {
+      return res.json()
+    }
+
+    return Promise.reject(new Error('Что-то пошло не так....'));
+} 
+
   uploadingUserInformation() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-
-        return Promise.reject(new Error('Что-то пошло не так....'));
-      });
+      .then((res) => this._getResponseData(res));
   }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-
-        return Promise.reject(new Error('Что-то пошло не так....'));
-      })
+    .then((res) => this._getResponseData(res));
   }
 
   updateProfile(name, about) {
@@ -39,14 +35,7 @@ class Api {
         about: about
       })
     })
-
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-
-        return Promise.reject(new Error('Что-то пошло не так....'));
-      });
+    .then((res) => this._getResponseData(res));
   }
 
   postNewCard(name, link) {
@@ -59,13 +48,7 @@ class Api {
       })
     })
 
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-
-        return Promise.reject(new Error('Что-то пошло не так....'));
-      });
+    .then((res) => this._getResponseData(res));
   }
 
   deleteCard(cardId) {
@@ -73,13 +56,7 @@ class Api {
       method: 'DELETE',
       headers: this._headers
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-
-        return Promise.reject(new Error('Что-то пошло не так....'));
-      });
+    .then((res) => this._getResponseData(res));
   }
 
   likeСard(cardId) {
@@ -87,13 +64,7 @@ class Api {
       method: 'PUT',
       headers: this._headers
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-
-        return Promise.reject(new Error('Что-то пошло не так....'))
-      })
+    .then((res) => this._getResponseData(res));
   }
 
   deleteLikeСard(cardId) {
@@ -101,13 +72,7 @@ class Api {
       method: 'DELETE',
       headers: this._headers
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-
-        return Promise.reject(new Error('Что-то пошло не так....'));
-      });
+    .then((res) => this._getResponseData(res));
   }
 
   updateAvatar(avatar) {
@@ -118,19 +83,8 @@ class Api {
         avatar: avatar
       })
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-
-        return Promise.reject(new Error('Что-то пошло не так....'));
-      });
+    .then((res) => this._getResponseData(res));
   }
 }
 
 export default Api;
-
-
-
-
-
