@@ -1,6 +1,6 @@
 class Card {
   constructor(card, cardTemplate, handleCardClick,
-    userId, deleteCard, likeCard, dislikeCard) {
+    userId, handleRequestDeleteCard, likeCard, dislikeCard) {
     this._title = card.name;
     this._img = card.link;
     this._likes = card.likes;
@@ -9,7 +9,7 @@ class Card {
     this._cardOwnerId = card.owner._id;
     this._cardTemplate = cardTemplate;
     this._handleCardClick = handleCardClick;
-    this._deleteCard = deleteCard;
+    this._handleRequestDeleteCard = handleRequestDeleteCard;
     this._likeCard = likeCard;
     this._dislikeCard = dislikeCard;
   }
@@ -33,8 +33,10 @@ class Card {
 
   _handleLikeClick() {
     if (!this._isThereLike()) {
-      this._likeCard(this._cardId);
-    } else { this._dislikeCard(this._cardId); };
+      this._likeCard();
+    } else {
+      this._dislikeCard();
+    };
   }
 
   handleLikesTotal(result) {
@@ -70,7 +72,7 @@ class Card {
     const deleteButton = this._newCard.querySelector('.button_el_delete');
     if (this._userId === this._cardOwnerId) {
       deleteButton.addEventListener('click', () => {
-        this._deleteCard(this._newCard, this._cardId);
+        this._handleRequestDeleteCard();
       });
     } else {
       deleteButton.remove();
@@ -91,6 +93,15 @@ class Card {
     this._setEventListeners();
 
     return this._newCard;
+  }
+
+  getCardId() {
+    return this._cardId;
+  }
+
+  deleteCard() {
+    this._newCard.remove();
+    this._newCard = null;
   }
 }
 

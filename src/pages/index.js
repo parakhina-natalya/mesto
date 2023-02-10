@@ -60,17 +60,7 @@ const popupWithFormAvatar = new PopupWithForm('.popup_avatar', (item) => {
     });
 });
 
-const popupWithConfirmation = new PopupWithConfirmation('.popup_confirm', (itemId) => {
-  api
-    .deleteCard(itemId)
-    .then(() => {
-      popupWithConfirmation.deleteItem()
-      popupWithConfirmation.close();
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
+const popupWithConfirmation = new PopupWithConfirmation('.popup_confirm');
 
 const popupWithImage = new PopupWithImage('.popup_figure');
 const handleCardClick = (img, title) =>
@@ -81,12 +71,24 @@ function createCard(item) {
     cardTemplate,
     handleCardClick,
     userInfo.returnUserId(),
-    (newCard, cardId) => {
-      popupWithConfirmation.open(newCard, cardId);
+
+    () => {
+      popupWithConfirmation.open(() => {
+        api.
+          deleteCard(card.getCardId())
+          .then(() => {
+            card.deleteCard();
+            popupWithConfirmation.close();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
     },
-    (cardId) => {
+
+    () => {
       api
-        .likeСard(cardId)
+        .likeСard(card.getCardId())
         .then((result) => {
           card.addLikeCard();
           card.handleLikesTotal(result);
@@ -95,9 +97,10 @@ function createCard(item) {
           console.log(error);
         });
     },
-    (cardId) => {
+
+    () => {
       api
-        .deleteLikeСard(cardId)
+        .deleteLikeСard(card.getCardId())
         .then((result) => {
           card.removeLikeCard();
           card.handleLikesTotal(result);
@@ -105,7 +108,7 @@ function createCard(item) {
         .catch((error) => {
           console.log(error);
         });
-    },
+    }
   );
   const cardElement = card.generateCard();
   return cardElement;
@@ -174,9 +177,8 @@ formValidatorEdit.enableValidation();
 
 const formValidatorAvatar = new FormValidator(elementValidation, popupAvatar);
 formValidatorAvatar.enableValidation();
-
+popupWithConfirmation.setEventListeners();
 popupWithFormAvatar.setEventListeners();
 popupWithFormEdit.setEventListeners();
 popupWithFormAdd.setEventListeners();
 popupWithImage.setEventListeners();
-popupWithConfirmation.setEventListeners();

@@ -10,7 +10,7 @@ class Api {
     }
 
     return Promise.reject(new Error('Что-то пошло не так....'));
-} 
+  }
 
   uploadingUserInformation() {
     return fetch(`${this._baseUrl}/users/me`, {
@@ -23,7 +23,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers
     })
-    .then((res) => this._getResponseData(res));
+      .then((res) => this._getResponseData(res));
   }
 
   updateProfile(name, about) {
@@ -35,7 +35,7 @@ class Api {
         about: about
       })
     })
-    .then((res) => this._getResponseData(res));
+      .then((res) => this._getResponseData(res));
   }
 
   postNewCard(name, link) {
@@ -48,7 +48,7 @@ class Api {
       })
     })
 
-    .then((res) => this._getResponseData(res));
+      .then((res) => this._getResponseData(res));
   }
 
   deleteCard(cardId) {
@@ -56,7 +56,7 @@ class Api {
       method: 'DELETE',
       headers: this._headers
     })
-    .then((res) => this._getResponseData(res));
+      .then((res) => this._getResponseData(res));
   }
 
   likeСard(cardId) {
@@ -64,7 +64,7 @@ class Api {
       method: 'PUT',
       headers: this._headers
     })
-    .then((res) => this._getResponseData(res));
+      .then((res) => this._getResponseData(res));
   }
 
   deleteLikeСard(cardId) {
@@ -72,7 +72,7 @@ class Api {
       method: 'DELETE',
       headers: this._headers
     })
-    .then((res) => this._getResponseData(res));
+      .then((res) => this._getResponseData(res));
   }
 
   updateAvatar(avatar) {
@@ -83,7 +83,7 @@ class Api {
         avatar: avatar
       })
     })
-    .then((res) => this._getResponseData(res));
+      .then((res) => this._getResponseData(res));
   }
 }
 
